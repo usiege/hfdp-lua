@@ -1,4 +1,4 @@
---
+-- class 
 require "Strategy.duck"
 
 -- main process
