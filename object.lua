@@ -1,7 +1,6 @@
--- 抽象基类, 无任何实现
-
-Duck = {
-    name = 'duck',
+-- root object
+Object = {
+    name = 'root'
 }
 -- 将 table 的元表 设置为 metatable
 --[=[
@@ -10,16 +9,7 @@ __index 这是一种继承
 实际上，这种访问触发 lua 解释器去查找__index metamethod:如果不存在，返回结果为 nil;
 如果存在则由__index metamethod 返回结果。 
 --]=]
-setmetatable(Duck, {__index = Duck})
-
-function Duck:print(...)
+setmetatable(Object, {__index = Object})
+function Object:print(...)
     print(self.name)
 end
-
-
-
-
-
-
-
-

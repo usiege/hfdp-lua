@@ -1,16 +1,3 @@
-# hfdp-Lua
-Head First Design Pattern use Lua
-
-## Dir refrences
-* Strategy
-
-
-## VS Code Debug
-
-- 新增插件Lua Debug
-> 添加远程接入`debug`配置：
-
-```
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -25,4 +12,3 @@ Head First Design Pattern use Lua
         },
     ]
 }
-```
