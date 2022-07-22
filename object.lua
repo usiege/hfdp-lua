@@ -10,6 +10,8 @@ __index 这是一种继承
 如果存在则由__index metamethod 返回结果。 
 --]=]
 setmetatable(Object, {__index = Object})
+Object.__index = Object
+
 function Object:print(...)
     print(self.name)
 end
