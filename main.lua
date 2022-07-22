@@ -2,7 +2,8 @@
 require "Strategy.duck"
 
 -- main process
-print(Duck.name)
+print(Object.name)
+print(Duck:new({}))
 
 
 
