@@ -13,6 +13,8 @@ setmetatable(Duck, {__index = Object})
 function Duck :new(o)
     o = o or {}
     setmetatable(o, self)
+    -- print(o.__index)
+    self.__index = self -- 表 -> 是否有元表 -> 元表__index
     return o
 end
 
