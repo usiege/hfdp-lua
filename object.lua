@@ -12,6 +12,6 @@ __index 这是一种继承
 setmetatable(Object, {__index = Object})
 Object.__index = Object
 
-function Object:print(...)
+function Object :print(...)
     print(self.name)
 end

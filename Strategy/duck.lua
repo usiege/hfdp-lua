@@ -4,12 +4,13 @@ require "Strategy.behavior"
 
 Duck = {
     name = 'duck',
-    fly = nil,
-    quark = nil,
+    fly_behavior = nil,
+    quark_behavior = nil,
+    display = nil   -- 
 }
 setmetatable(Duck, {__index = Object})
 
--- class new 
+-- 类 对象
 function Duck :new(o)
     o = o or {}
     setmetatable(o, self)
@@ -18,19 +19,38 @@ function Duck :new(o)
     return o
 end
 
+function Duck: fly()
+    self.fly_behavior.fly()
+end
+
+function Duck: quark()
+    self.quark_behavior.quark()
+end
+
 function Duck: setFly(fly)
-    self.fly = fly
+    self.fly_behavior = fly
 end
 
 function Duck: setQuark(quark)
-    self.quark = quark
+    self.quark_behavior = quark
 end
 
-function Duck: performFly()
-    self.fly:fly()
+
+
+-- 继承
+MallarDuck = Duck:new({
+    name = 'mallar duck',
+    fly_behavior = FlyWithWings:new(), -- 有翅膀
+    quark_behavior = Quark:new()    -- 占位，无任何动作
+})
+
+function MallarDuck: performFly()
+    self.fly_behavior.fly()
 end
 
-function Duck : performQuark()
-    self.quark:quark()
+function MallarDuck: performQuark()
+    self.quark_behavior.quark()
 end
+
+
 
