@@ -1,6 +1,5 @@
--- root object
 Object = {
-    name = 'root'
+    name = 'object 2'
 }
 -- 将 table 的元表 设置为 metatable
 --[=[
@@ -15,5 +14,3 @@ Object.__index = Object
 function Object :print(...)
     print(self.name)
 end
-
-return Object -- package

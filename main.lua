@@ -1,11 +1,15 @@
-require "Strategy.duck"
-
 -- main process
+
+-- strategy --
+require "Strategy.duck"
+-- require "object"  -- package
+-- require "object2" -- module
+
+print('-- strategy --')
 print(Object.name)
 
 local duck = Duck:new({})
 print(duck.name)
-
 
 local m_duck = MallarDuck:new()
 print(m_duck.name)
@@ -19,7 +23,7 @@ local fly2 = FlyNoWay:new()
 m_duck:setFly(fly2)
 m_duck:performFly()
 
-
+print('---------------------')
 
 
 
