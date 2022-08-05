@@ -1,4 +1,5 @@
 -- 抽象基类, 无任何实现
+-- 这里要抽象的是鸭子类型
 require "object"
 require "Strategy.behavior"
 
@@ -6,7 +7,7 @@ Duck = {
     name = 'duck',
     fly_behavior = nil,
     quark_behavior = nil,
-    display = nil   -- 
+    display = nil   --
 }
 setmetatable(Duck, {__index = Object})
 
@@ -51,6 +52,3 @@ end
 function MallarDuck: performQuark()
     self.quark_behavior.quark()
 end
-
-
-
