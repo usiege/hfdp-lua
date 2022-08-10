@@ -5,19 +5,14 @@ local Beverage = Beverage
 -- 装饰者
 local CondimentDecorator = { _beverage = nil}
 setmetatable(CondimentDecorator, {__index = Beverage})
-function CondimentDecorator:init(beverage)
-    -- create a new table using super
-    local o = self:new({}) 
-    -- link super and self
-    setmetatable(o, self) 
-    -- attach new properties
-    self._beverage = beverage 
-    return o -- back new table
-end
+
 
 -- 牛奶
-Milk = {}
-setmetatable(Milk,{__index = CondimentDecorator})
+Milk = CondimentDecorator:new()
+function Milk: init(beverage)
+    self._beverage = beverage
+    return self
+end
 function Milk: description()
     return self._beverage:description() .. ' +' .. ' milk'
 end
@@ -26,18 +21,26 @@ function Milk: cost()
 end
 
 -- 豆浆
-Soy = {}
-setmetatable(Soy, {__index = CondimentDecorator})
+Soy = CondimentDecorator:new()
+-- setmetatable(Soy, {__index = CondimentDecorator})
+function Soy: init(beverage)
+    self._beverage = beverage
+    return self
+end
 function Soy: description()
-    return self._beverage.description() .. ' +' .. ' soy'
+    -- return self._beverage.description() .. ' +' .. ' soy'
+    return self._beverage:description() .. ' +' .. ' soy'
 end
 function Soy: cost()
-    return self._beverage.cost() + 0.15
+    return self._beverage:cost() + 0.15
 end
 
 -- 奶泡
-Whip = {}
-setmetatable(Whip, {__index = CondimentDecorator})
+Whip = CondimentDecorator:new()
+function Whip: init(beverage)
+    self._beverage = beverage
+    return self
+end
 function Whip: description()
     return self._beverage:description() .. ' +' .. ' whip'
 end
@@ -46,9 +49,20 @@ function Whip: cost()
 end
 
 -- 摩卡
-local Mocha = {}
-setmetatable(Mocha, {__index = CondimentDecorator})
+local Mocha = CondimentDecorator:new({})
+function Mocha: init(beverage)
+    print('beverage')
+    print(beverage)
+    if self == beverage then
+        self = CondimentDecorator:new({})
+    end
+    self._beverage = beverage
+    print(self)
+    print(Mocha)
+    return self
+end
 function Mocha: description()
+    print(self)
     return self._beverage:description() .. ' +' .. ' mocha'
 end
 function Mocha: cost()

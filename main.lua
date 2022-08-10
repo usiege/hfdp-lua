@@ -38,22 +38,29 @@ print(Beverage:new{})
 
 -- _G = _G
 local Mocha = Mocha
-local beverage2 = DarkRoast:new()
-print(beverage2:description() .. ' $' .. beverage2:cost())
-beverage2 = Whip:init(beverage2)
-print(beverage2:description() .. ' $' .. beverage2:cost())
-
 -- test create table different
-local b1 = Mocha:init(beverage2)
+local b1 = Mocha:new({}, beverage)
 print(b1)
-local b2 = Mocha:init(beverage2)
+local b2 = Mocha:new({},beverage)
 print(b2)
 
--- -- TODO: 循环调用问题？
+local beverage2 = DarkRoast:new()
+print(beverage2:description() .. ' $' .. beverage2:cost())
+print(beverage2)
+beverage2 = Whip:init(beverage2)
+print(beverage2:description() .. ' $' .. beverage2:cost())
+print(beverage2)
+beverage2 = Soy:init(beverage2)
+print(beverage2:description() .. ' $' .. beverage2:cost())
+print(beverage2)
+
+-- TODO: 循环调用问题？
 -- beverage2 = Mocha:init(beverage2)
 -- print(beverage2:description() .. ' $' .. beverage2:cost())
+-- print(beverage2)
 -- beverage2 = Mocha:init(beverage2)
 -- print(beverage2:description() .. ' $' .. beverage2:cost())
+-- print(beverage2)
 
 local beverage3 = HouseBlend:new()
 print(beverage3:description() .. ' $' .. beverage3:cost())
