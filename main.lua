@@ -62,17 +62,20 @@ print(beverage2)
 -- print(beverage2:description() .. ' $' .. beverage2:cost())
 -- print(beverage2)
 
-local beverage3 = HouseBlend:new()
-print(beverage3:description() .. ' $' .. beverage3:cost())
-beverage3 = Mocha:init(beverage3)
-print(beverage3:description() .. ' $' .. beverage3:cost())
-beverage3 = Soy:init(beverage3)
-print(beverage3:description() .. ' $' .. beverage3:cost())
-beverage3 = Whip:init(beverage3)
-print(beverage3:description() .. ' $' .. beverage3:cost())
+for i=1,10 do
+  -- body...
+  local b = CondimentDecorator:new()
+  print(b)
+end
+
+-- local beverage3 = HouseBlend:new()
+-- print(beverage3:description() .. ' $' .. beverage3:cost())
+-- beverage3 = Mocha:init(beverage3)
+-- print(beverage3:description() .. ' $' .. beverage3:cost())
+-- beverage3 = Soy:init(beverage3)
+-- print(beverage3:description() .. ' $' .. beverage3:cost())
+-- beverage3 = Whip:init(beverage3)
+-- print(beverage3:description() .. ' $' .. beverage3:cost())
 
 
 print('---------------------')
-
-
-
